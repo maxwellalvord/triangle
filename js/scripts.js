@@ -1,4 +1,7 @@
-function tri(event) {
+// updated the parameters below to match the names within the function
+function triCalc(sideOne, sideTwo, sideThree) {
+  /* logic for each if/else still needs to be adjusted, 
+  don't forget to use && / ||to mean 'and' / || */
   if (sideOne === sideTwo === sideThree) {
     return "equilaterial";
   } else if ((sideOne === sideTwo) != sideThree) {
@@ -14,24 +17,28 @@ function tri(event) {
   }
 };
 
+/*
 const whatTriangle = function(sideOne, sideTwo, sideThree) {
   return sideOne <= (sideTwo + sideThree) && sideTwo <= (sideThree + sideOne) && sideThree <= (sideOne + sideTwo);
 };
+*/
 
 $(document).ready(function() {
   $("form#triCalc").submit(function(event) {
 
-    const number1 = parseInt($("input#sideOne").val());
-    const number2 = parseInt($("input#sideTwo").val());
-    const number3 = parseInt($("input#sideThree").val());
-    let result = triangle (sideOne, sideTwo, sideThree);
+    //adjusted the ID names to match the ones on the html (input1/input2/input3)
+    const number1 = parseInt($("input1").val());
+    const number2 = parseInt($("input2").val());
+    const number3 = parseInt($("input3").val());
+    // updated the arguments below to match the variable names above
+    let result = triCalc(number1, number2, number3);
     
+/*    
     number1 = parseInt($("#input1").val(""));
     number2 = parseInt($("#input2").val(""));
     number3 = parseInt($("#input3").val(""));
-    
-    $("#output").append(result);
-    $("#output").show();
+ */   
+    $("#output").text(result);
     event.preventDefault();
   });
 });
